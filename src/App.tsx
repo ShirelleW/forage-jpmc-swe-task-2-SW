@@ -41,6 +41,7 @@ class App extends Component<{}, IState> {
    */
   getDataFromServer() {
     let x = 0; 
+    // Gets constant stream of data request
     const interval = setInterval(() => {
       DataStreamer.getData((serverResponds: ServerRespond[]) => {
         this.setState({ data: serverResponds, 
@@ -50,7 +51,7 @@ class App extends Component<{}, IState> {
       if (x > 1000){
         clearInterval(interval)
       }
-    }, 10000)
+    }, 100)
    
   }
 
